@@ -13,14 +13,15 @@ public class Cards {
         cardPlay = new int[4][13];
     }
 
-    // getter setter
+    // getter
     public int[][] getCardPlay() {
         return cardPlay;
     }
 
     // method
-    public void random() {
+    public int[][] random() {
         // random
+        System.out.print("Swap ID Cards>> ");
         for (int i = 0; i < card.length; i++) {
             card[i] = (int) Math.round((Math.random() * 51));
             if (num[card[i]] == 0) {
@@ -30,9 +31,9 @@ public class Cards {
             else
                 i--;
         }
+        System.out.println();
 
         // id to arrays position
-        int[][] cardPlay = new int[4][13];
         for (int i = 0; i < card.length; i++) {
             cardPlay[(card[i]/13)][card[i]%13] = i%4;
         }
@@ -40,24 +41,10 @@ public class Cards {
         // test print
         for (int i = 0; i < cardPlay.length; i++) {
             for (int j = 0; j < cardPlay[i].length; j++) {
-                if(cardPlay[i][j]==0)
-                {
-                    System.out.println("Suit:"+i+" Num:"+j+" Player:0");
-                }
-                else if(cardPlay[i][j]==1)
-                {
-                    System.out.println("Suit:"+i+" Num:"+j+" Player:1");
-                }
-                else if(cardPlay[i][j]==2)
-                {
-                    System.out.println("Suit:"+i+" Num:"+j+" Player:2");
-                }
-                else if(cardPlay[i][j]==3)
-                {
-                    System.out.println("Suit:"+i+" Num:"+j+" Player:3");
-                }
-//                System.out.print(cardPlay[i][j] + " ");
+                System.out.println("Suit:" + i + "\tNum:" + j + "\tPlayer:" + cardPlay[i][j]);
             }
         }
+
+        return cardPlay;
     }
 }
