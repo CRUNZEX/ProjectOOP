@@ -6,8 +6,8 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
-import ui.HowFX;
 
 import java.io.IOException;
 
@@ -18,7 +18,7 @@ public class Controller_Menu {
     public Button Btn_Exit;
 
     // Method
-    public void Change_Play(ActionEvent event) throws IOException {
+    public void Change_Play(MouseEvent event) throws IOException {
         // create stage
         Parent rootHow = FXMLLoader.load(getClass().getResource("Play.fxml"));
         Scene rootHowScene = new Scene(rootHow);
