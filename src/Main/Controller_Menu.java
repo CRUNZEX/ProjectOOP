@@ -18,13 +18,21 @@ public class Controller_Menu {
     public Button Btn_Exit;
 
     // Method
-    public void Change_Play(ActionEvent event) {
-        if (event.getSource() == Btn_Play) {
-            System.out.println("You have clicked the button.");
-        }
+    public void Change_Play(ActionEvent event) throws IOException {
+        // create stage
+        Parent rootHow = FXMLLoader.load(getClass().getResource("Play.fxml"));
+        Scene rootHowScene = new Scene(rootHow);
+
+        // stage
+        Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
+
+        // display
+        window.setScene(rootHowScene);
+        window.show();
     }
 
     public void Change_How(ActionEvent event) throws IOException {
+        // create stage
         Parent rootHow = FXMLLoader.load(getClass().getResource("How.fxml"));
         Scene rootHowScene = new Scene(rootHow);
 
@@ -37,8 +45,8 @@ public class Controller_Menu {
     }
 
     public void Change_Exit(ActionEvent event) {
-        if (event.getSource() == Btn_Exit) {
-            System.out.println("You have Exit the button.");
-        }
+        // stage
+        Stage stage = (Stage) Btn_Exit.getScene().getWindow();
+        stage.close();
     }
 }
