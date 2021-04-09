@@ -1,6 +1,5 @@
-package Main;
+package UI.Menu;
 
-import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.Parent;
@@ -20,7 +19,7 @@ public class Controller_Menu {
     // Method
     public void Change_Play(MouseEvent event) throws IOException {
         // create stage
-        Parent rootHow = FXMLLoader.load(getClass().getResource("Play.fxml"));
+        Parent rootHow = FXMLLoader.load(getClass().getResource("../Play/Play.fxml"));
         Scene rootHowScene = new Scene(rootHow);
 
         // stage
@@ -31,9 +30,9 @@ public class Controller_Menu {
         window.show();
     }
 
-    public void Change_How(ActionEvent event) throws IOException {
+    public void Change_How(MouseEvent event) throws IOException {
         // create stage
-        Parent rootHow = FXMLLoader.load(getClass().getResource("How.fxml"));
+        Parent rootHow = FXMLLoader.load(getClass().getResource("../How/How.fxml"));
         Scene rootHowScene = new Scene(rootHow);
 
         // stage
@@ -44,7 +43,7 @@ public class Controller_Menu {
         window.show();
     }
 
-    public void Change_Exit(ActionEvent event) {
+    public void Change_Exit(MouseEvent event) {
         // stage
         Stage stage = (Stage) Btn_Exit.getScene().getWindow();
         stage.close();
