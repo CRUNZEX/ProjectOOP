@@ -1,4 +1,4 @@
-package Main;
+package UI.How;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
@@ -16,7 +16,7 @@ public class Controller_How {
 
     // method
     public void Change_Back(ActionEvent event) throws IOException {
-        Parent rootHow = FXMLLoader.load(getClass().getResource("Menu.fxml"));
+        Parent rootHow = FXMLLoader.load(getClass().getResource("../Menu/Menu.fxml"));
         Scene rootHowScene = new Scene(rootHow);
 
         // stage

@@ -4,17 +4,15 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
 public class Main extends Application {
 
-    Scene menuScene, howScene;
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("Menu.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1280, 720));
+        Parent root = FXMLLoader.load(getClass().getResource("../UI/Menu/Menu.fxml"));
+        primaryStage.setTitle("Old maid");
+        primaryStage.setScene(new Scene(root,1280,720));
         primaryStage.show();
     }
 
