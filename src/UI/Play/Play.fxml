@@ -15,67 +15,67 @@
       </Button>
 
 <!--      Spade-->
-      <ImageView fx:id="Spade_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="0.0" onMouseClicked="#test1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_2" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_2" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_3" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_3" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_4" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_4" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_5" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_5" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_6" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_6" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_7" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_7" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_8" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_8" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_9" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_9" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_9.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_10" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_10" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_11" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_11" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_11.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_12" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_12" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_12.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_13" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="0.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_13" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_0.png" />
          </image>
@@ -83,134 +83,134 @@
 
 <!--         Heart-->
 
-      <ImageView fx:id="Heart_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="180.0" onMouseClicked="#test1" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_2" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_2" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_3" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_3" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_4" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_4" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_5" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_5" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_6" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_6" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_7" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_7" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_8" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_8" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_9" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_9" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_9.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_10" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_10" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_11" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_11" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_11.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_12" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_12" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_12.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Heart_13" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="180.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Heart_13" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="180.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/1_0.png" />
          </image>
       </ImageView>
 
 <!--      Diamond -->
-      <ImageView fx:id="Diamond_1" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_1" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_2" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_2" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_3" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_3" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_4" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_4" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_5" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_5" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_6" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_6" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_7" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_7" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_8" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_8" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_9" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_9" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_9.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_10" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_10" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_11" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_11" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_11.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_12" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_12" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_12.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Diamond_13" fitHeight="150.0" fitWidth="200.0" layoutX="320.0" layoutY="360.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Diamond_13" fitHeight="150.0" fitWidth="200.0" layoutX="320.0" layoutY="360.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/2_0.png" />
          </image>
@@ -218,67 +218,67 @@
 
       <!--      Club-->
 
-      <ImageView fx:id="Club_1" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_1" fitHeight="150.0" fitWidth="200.0" layoutX="70.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_1.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_2" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_2" fitHeight="150.0" fitWidth="200.0" layoutX="90.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_2.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_3" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_3" fitHeight="150.0" fitWidth="200.0" layoutX="120.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_3.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_4" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_4" fitHeight="150.0" fitWidth="200.0" layoutX="140.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_4.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_5" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_5" fitHeight="150.0" fitWidth="200.0" layoutX="160.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_5.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_6" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_6" fitHeight="150.0" fitWidth="200.0" layoutX="180.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_6.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_7" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_7" fitHeight="150.0" fitWidth="200.0" layoutX="200.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_7.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_8" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_8" fitHeight="150.0" fitWidth="200.0" layoutX="220.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_8.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_9" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_9" fitHeight="150.0" fitWidth="200.0" layoutX="240.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_9.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_10" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_10" fitHeight="150.0" fitWidth="200.0" layoutX="260.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_10.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_11" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_11" fitHeight="150.0" fitWidth="200.0" layoutX="280.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_11.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_12" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_12" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_12.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Club_13" fitHeight="150.0" fitWidth="200.0" layoutX="320.0" layoutY="540.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Club_13" fitHeight="150.0" fitWidth="200.0" layoutX="320.0" layoutY="540.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/3_0.png" />
          </image>
@@ -287,6 +287,11 @@
 
 <!--      Button: Auto Matching-->
       <Button fx:id="Btn_Swap" layoutX="1152.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#BtnSwap" prefHeight="69.0" prefWidth="89.0" text="Swap">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
+      <Button fx:id="Btn_Place" disable="true" layoutX="1153.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#BtnPlace" text="Place">
          <font>
             <Font size="24.0" />
          </font>
