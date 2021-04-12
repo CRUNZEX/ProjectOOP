@@ -296,5 +296,10 @@
             <Font size="24.0" />
          </font>
       </Button>
+      <Button fx:id="Btn_endturn" disable="true" layoutX="1114.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#BtnEndTurn" text="End Turn">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Button>
    </children>
 </AnchorPane>

@@ -1,13 +1,13 @@
 package Game;
 
-public class Cards {
+public class CardsClass {
     // data fields
     private int[] card;
     private int[] num;
     private int[][] cardPlay;
 
     // constructor
-    public Cards() {
+    public CardsClass() {
         card = new int[52];
         num = new int[52];
         cardPlay = new int[4][13];
