@@ -1,67 +1,52 @@
 package UI.Play;
 
 import Game.BotClass;
-import Game.CardsClass;
-import Game.ImageClass;
 import Game.PlayerClass;
+import UI.Menu.Controller_Menu;
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.effect.ColorAdjust;
-import javafx.scene.effect.MotionBlur;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 
-public class Controller_Play {
+import javax.swing.*;
 
+public class Controller_Play extends Controller_Menu {
     //------------------------------------------------------------------------------------------------------------------
-    // === stage cards ===
-    // Cards: position to name of cards
-    //      0(Player) 1(Bot1) 2(Bot2) 3(Bot3)
-    // CardsChecked:
-    //    - [][][0]
-    //      0 not duplicate -> gray out in first turn
-    //      1 duplicate -> light in first turn
-    //      2 upper cards -> after click this cards upper
-    //      3 place button -> place cards on stage
+    /*
 
-    // === image ===
-    // imgArraysMethod: pack image to arrays
-
+    */
     //------------------------------------------------------------------------------------------------------------------
     // data fields
-    private CardsClass cardsClass = new CardsClass();
+    private int randDirect;
+    public AnchorPane MainPane;
+    public ImageView Arrow;
+
     private BotClass botClass = new BotClass();
     private PlayerClass playerClass = new PlayerClass();
+    ImageView[][] backCards = new ImageView[3][13];
 
-    //private ImageClass imageClass = new ImageClass();
-    private int[][] Cards;
-    private int[][][] CardsChecked;
-    private int countPickup = 0;
-    //  - pick up
-    private String[] cardIdPickup = new String[2];
-    private String[][] cardIdPickupSplit = new String[2][2];
-    //  - color
+    // color
     private ColorAdjust colorAdjust = new ColorAdjust();
-    private MotionBlur motionBlur = new MotionBlur();
 
     // button
     public Button Btn_Swap, Btn_Rand;
     public Button Btn_Place;
-    public Button Btn_endturn;
+    public Button Btn_EndTurn;
 
     // add image
-    //   - Spade
     public ImageView Spade_1, Spade_2, Spade_3, Spade_4, Spade_5, Spade_6, Spade_7, Spade_8, Spade_9, Spade_10, Spade_11, Spade_12, Spade_13;
-    //   - Heart
     public ImageView Heart_1, Heart_2, Heart_3, Heart_4, Heart_5, Heart_6, Heart_7, Heart_8, Heart_9, Heart_10, Heart_11, Heart_12, Heart_13;
-    //   - Diamond
     public ImageView Diamond_1, Diamond_2, Diamond_3, Diamond_4, Diamond_5, Diamond_6, Diamond_7, Diamond_8, Diamond_9, Diamond_10, Diamond_11, Diamond_12, Diamond_13;
-    //   - Club
     public ImageView Club_1, Club_2, Club_3, Club_4, Club_5, Club_6, Club_7, Club_8, Club_9, Club_10, Club_11, Club_12, Club_13;
+    public ImageView BackSide;
 
     //------------------------------------------------------------------------------------------------------------------
     // method
-    private ImageView[][] imgArraysMethod() { // img
 
+    private ImageView[][] imgArraysMethod() {                                   // imgArrays
         return new ImageView[][]{
                 {Spade_1, Spade_2, Spade_3, Spade_4, Spade_5, Spade_6, Spade_7, Spade_8, Spade_9, Spade_10, Spade_11, Spade_12, Spade_13},
                 {Heart_1, Heart_2, Heart_3, Heart_4, Heart_5, Heart_6, Heart_7, Heart_8, Heart_9, Heart_10, Heart_11, Heart_12, Heart_13},
@@ -69,112 +54,149 @@ public class Controller_Play {
                 {Club_1, Club_2, Club_3, Club_4, Club_5, Club_6, Club_7, Club_8, Club_9, Club_10, Club_11, Club_12, Club_13}
         };
     }
-    private void imgToClass(){
-        ImageClass imageClass = new ImageClass(imgArraysMethod());
-    }
-    private int[][][] checkDuplicate() {    // check
-        int[][][] temp = new int[4][13][1];
-        int[] count = new int[13];
 
-        for (int i = 0; i < Cards.length; i++) {        // check count of num
-            for (int j = 0; j < Cards[i].length; j++) {
-                if (Cards[i][j] == 0)
-                    count[j]++;
+    public int randomDirection() {
+        return (int) Math.round(Math.random());
+    }
+
+    private void backCards() {
+        // load image
+        Image image = new Image("Image/black_joker.png");
+
+        for (int i = 0; i < backCards.length; i++) {
+            for (int j = 0; j < backCards[i].length; j++) {
+                backCards[i][j] = new ImageView(image);
+
+                backCards[i][j].setFitWidth(105);
+                backCards[i][j].setFitHeight(150);
+
+                backCards[i][j].setLayoutX(j*20);
+                backCards[i][j].setLayoutY(i*150);
+
+                int finalI = i;
+                backCards[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent -> BackCardsClick(finalI));
+                MainPane.getChildren().add(backCards[i][j]);
             }
         }
+    }
 
-        for (int i = 0; i < temp.length; i++) {     // assign 1 if duplicate
-            for (int j = 0; j < temp[i].length; j++) {
-                if (count[j] > 1)
-                    temp[i][j][0] = 1;      // duplicate
-                else
-                    temp[i][j][0] = 0;
-                if (i == 0)
-                    System.out.println(temp[i][j][0]);
-            }
+    private void interrupt(long time) {
+        long end = 0;
+        while (end < time) {
+            end++;
         }
-
-        return temp;
-    }
-
-    // getter setter
-    public int[][][] getCardsChecked() {
-        return CardsChecked;
-    }
-
-    public void setCardsChecked(int[][][] cardsChecked) {
-        CardsChecked = playerClass.getCardsChecked();
+        System.out.println("interrupt");
     }
 
     //------------------------------------------------------------------------------------------------------------------
-    // Button
+    // Button: Random
+
+    public void BackCardsClick(int i) {
+        if (randDirect == 0 && i == 0) {
+            System.out.println("หยิบได้!" + i);
+        }
+        else if (randDirect == 1 && i == 1) {
+            System.out.println("หยิบได้!" + i);
+        }
+        else
+            System.out.println("ไม่ให้!" + i);
+    }
+
     public void BtnRand(MouseEvent mouseEvent) {
-        Btn_Rand.setDisable(true);      // greyed out button
-        //botClass.botCountCard();
-        Btn_endturn.setDisable(false);
+        // greyed out button
+        Btn_Rand.setDisable(true);
+        Btn_EndTurn.setDisable(false);
 
         // image to arrays
-        ImageView[][] CardArrays = imgArraysMethod();
-        setCardsChecked(checkDuplicate());
-        playerClass.checkDuplicate();
-        int[][][] checkDup = getCardsChecked();
+        ImageView[][] CardImgArrays = imgArraysMethod();
         colorAdjust.setBrightness(-0.2);
+        playerClass.checkDuplicate();
+
+        backCards();
 
         // random
-        for (int i = 0, round = 0; i < Cards.length; i++) {
-            for (int j = 0; j < Cards[i].length; j++) {
-                // set new position
-                if (Cards[i][j] == 0) {
-                    CardArrays[i][j].setLayoutX((round * 40) + 200);    // set position
-                    CardArrays[i][j].setLayoutY(650);
+        for (int i = 0, round = 0; i < playerClass.getCardsRand().length; i++) {
+            for (int j = 0; j < playerClass.getCardsRand()[i].length; j++) {
+                if (playerClass.getCardsRand()[i][j] == 0) {
+                    CardImgArrays[i][j].setLayoutX((round * 40) + 200);                                                 // set new position
+                    CardImgArrays[i][j].setLayoutY(650);
                     round++;
 
-                    if (checkDup[i][j][1] != 1) {       // check duplicate
-                        CardArrays[i][j].setEffect(colorAdjust);
-                    }
+                    if (playerClass.getCardsChecked()[i][j][1] != 1)                                                    // check duplicate
+                        CardImgArrays[i][j].setEffect(colorAdjust);
                 }
                 else {
-                    CardArrays[i][j].setImage(null);
-                    CardArrays[i][j].setDisable(true);
+                    CardImgArrays[i][j].visibleProperty().setValue(false);
+                    CardImgArrays[i][j].setDisable(true);
                 }
             }
         }
+
+        // set position bot cards
+        for (int i = 0; i < backCards.length; i++) {
+            for (int j = 0; j < backCards[i].length; j++) {
+                if (i == 0) {
+                    backCards[i][j].setRotate(-90);
+                    backCards[i][j].setLayoutY(400 - (20 * j));
+                    backCards[i][j].setLayoutX(1150);
+                }
+                else if (i == 1) {
+                    backCards[i][j].setRotate(90);
+                    backCards[i][j].setLayoutY(400 - (20 * j));
+                    backCards[i][j].setLayoutX(-50);
+                }
+                else if (i == 2) {
+                    backCards[i][j].setRotate(180);
+                    backCards[i][j].setLayoutY(-100);
+                    backCards[i][j].setLayoutX(200 + (j * 20));
+                }
+            }
+        }
+
+        // random direction
+        randDirect = randomDirection();
+        if (randDirect == 1) {
+            Arrow.setScaleX(-1);
+        }
+        System.out.println(randDirect);
     }
+
+    //------------------------------------------------------------------------------------------------------------------
+    // Button: Swap
 
     public void BtnSwap(MouseEvent mouseEvent) {
         Btn_Rand.setDisable(false);
         Btn_Swap.setDisable(true);
-        Cards = playerClass.getCardsRand();
-
     }
 
-    public void BtnPlace(MouseEvent mouseEvent) {
-        int[][][] temp = getCardsChecked();
-        ImageView[][] CardArrays = imgArraysMethod();
-        int countOfBrightCard = 0;
-//        Arrays.sort(cardIdPickup);
+    //------------------------------------------------------------------------------------------------------------------
+    // Button: Place Cards
 
-        System.out.println("----------");
-        for (int i = 0; i < playerClass.getCardsPickupID_split().length; i++) {    // print test
+    public void BtnPlace(MouseEvent mouseEvent) {
+        int[][][] temp = playerClass.getCardsChecked();
+
+        // print test
+        System.out.println("\n----------");
+        for (int i = 0; i < playerClass.getCardsPickupID_split().length; i++) {
             for (int j = 0; j < playerClass.getCardsPickupID_split()[i].length; j++) {
                 System.out.print(playerClass.getCardsPickupID_split()[i][j]);
             }
+            System.out.print(" ");
         }
 
-        System.out.println("----------");
+        System.out.println();
         for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
             for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
-                System.out.print(playerClass.getCardsChecked()[i][j][1]);
+                System.out.print(playerClass.getCardsChecked()[i][j][1] + " ");
             }
         }
 
-        System.out.println("----------");
-        if (playerClass.getCardsPickupID_split()[0][1].equals(playerClass.getCardsPickupID_split()[1][1])) {
-//            System.out.println(">>id: " + cardIdPickupSplit[0][1] + " " + cardIdPickupSplit[1][1]);
+        System.out.println();
 
+        // check place cards
+        if (playerClass.getCardsPickupID_split()[0][1].equals(playerClass.getCardsPickupID_split()[1][1])) {
             for (int i = playerClass.getImgArraysID().length - 1, count = 0; i >= 0; i--) {
                 for (int j = 0; j < playerClass.getImgArraysID()[i].length; j++) {
-//                    System.out.println(">>count: " + count);
                     if (count < 2 && playerClass.getCardsPickupID()[count].equals(playerClass.getImgArraysID()[i][j])) {
                         System.out.println(playerClass.getCardsPickupID()[count]);
                         imgArraysMethod()[i][j].setLayoutY(200);
@@ -183,127 +205,61 @@ public class Controller_Play {
                     }
                 }
             }
-
-//            for (int i = imgArraysMethod().length - 1, count = 0; i >= 0; i--) {
-//                for (int j = 0; j < imgArraysMethod()[i].length; j++) {
-////                    System.out.println(">>count: " + count);
-//                    if (count < 2 && cardIdPickup[count].equals(imgArraysMethod()[i][j].getId())) {
-//                        System.out.println(cardIdPickup[count]);
-//                        imgArraysMethod()[i][j].setLayoutY(200);
-//                        temp[i][j][0] = 3;
-//                        count++;
-//                    }
-//                }
-//            }
             playerClass.setCardsChecked(temp);
             playerClass.setCardsPickupID_count(0);
-//            countPickup = 0;
         }
         else {
-            for (int count = 0; count < 2;) {   // check for down 2 cards
+            for (int count = 0; count < 2;) {                                                                           // check for down 2 cards
                 for (int i = playerClass.getImgArraysID().length - 1; i >= 0; i--) {
                     for (int j = 0; j < playerClass.getImgArraysID()[i].length; j++) {
-//                        System.out.println(">>count: " + count);
                         if (count < 2 && playerClass.getCardsPickupID()[count].equals(playerClass.getImgArraysID()[i][j])) {
                             double tempPos = imgArraysMethod()[i][j].getLayoutY();
-                            System.out.println(cardIdPickup[count]);
                             imgArraysMethod()[i][j].setLayoutY(tempPos + 30);
                             temp[i][j][1] = 1;
                             count++;
                         }
                     }
                 }
-
-//                for (int i = imgArraysMethod().length - 1; i >= 0; i--) {
-//                    for (int j = 0; j < imgArraysMethod()[i].length; j++) {
-////                        System.out.println(">>count: " + count);
-//                        if (count < 2 && cardIdPickup[count].equals(imgArraysMethod()[i][j].getId())) {
-//                            double tempPos = imgArraysMethod()[i][j].getLayoutY();
-//                            System.out.println(cardIdPickup[count]);
-//                            imgArraysMethod()[i][j].setLayoutY(tempPos + 30);
-//                            temp[i][j][0] = 1;
-//                            count++;
-//                        }
-//                    }
-//                }
             }
             playerClass.setCardsChecked(temp);
             playerClass.setCardsPickupID_count(0);
-//            countPickup = 0;
-        }
-
-        for (int i = 0; i < temp.length; i++) {
-            for (int j = 0; j < temp[i].length; j++) {
-                System.out.print(temp[i][j][0] + " ");
-                if (temp[i][j][1] == 1)
-                    countOfBrightCard++;
-            }
-        }
-        System.out.println("count: " + countOfBrightCard);
-
-        if (countOfBrightCard <= 1) {
-            colorAdjust.setBrightness(-0.2);
-            for (int i = 0; i < temp.length; i++) {
-                for (int j = 0; j < temp[i].length; j++) {
-                    CardArrays[i][j].setEffect(colorAdjust);
-                }
-            }
         }
 
         playerClass.setCardsPickupID_FILLNULL();
-//        Arrays.fill(cardIdPickup, null);
-//        Arrays.fill(cardIdPickupSplit, null);
         Btn_Place.setDisable(true);
         playerClass.setCardsChecked(temp);
-//        setCardsChecked(temp);//
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    // Button: Pick Up Cards
+
     public void PickupCard(MouseEvent mouseEvent) {
-        int[][][] temp = getCardsChecked();
-        double tempPos = mouseEvent.getPickResult().getIntersectedNode().getLayoutY();      // get old position
-        System.out.println("-----");
+        int[][][] temp = playerClass.getCardsChecked();
+        double tempPos = mouseEvent.getPickResult().getIntersectedNode().getLayoutY();                                  // get old position
+        System.out.println("\n-----");
 
         int[] pos = playerClass.checkIndex(mouseEvent.getPickResult().getIntersectedNode().getId());
 
-//        int posX = 0, posY = 0;
-//        for (int i = 0; i < imgArraysMethod().length; i++) {
-//            for (int j = 0; j < imgArraysMethod()[i].length; j++) {
-//                if (imgArraysMethod()[i][j].getId().equals(mouseEvent.getPickResult().getIntersectedNode().getId())) {       // map id to position in arrays
-////                    System.out.println(imgArraysMethod()[i][j].getId());
-//                    posX = i;
-//                    posY = j;
-//                }
-//            }
-//        }
-
-        if (temp[pos[0]][pos[1]][1] == 1 && playerClass.getCardsPickupID_count() < 2)   // check dupilcate
+        if (temp[pos[0]][pos[1]][1] == 1 && playerClass.getCardsPickupID_count() < 2)                                   // check dupilcate
         {
             // set position: UP
-            System.out.println("Up");
+            System.out.print("Up\t");
             mouseEvent.getPickResult().getIntersectedNode().setLayoutY(tempPos - 30);
             temp[pos[0]][pos[1]][1] = 2;
 
             // SET id pick up cards
             playerClass.setCardsPickupID(mouseEvent.getPickResult().getIntersectedNode().getId());
-//            cardIdPickup[countPickup] = mouseEvent.getPickResult().getIntersectedNode().getId();
-//            cardIdPickupSplit[countPickup] = mouseEvent.getPickResult().getIntersectedNode().getId().split("_", -1);
-//            countPickup++;
         }
         else if (temp[pos[0]][pos[1]][1] == 2) {
             // set position: Down
-            System.out.println("Down");
+            System.out.print("Down\t");
             mouseEvent.getPickResult().getIntersectedNode().setLayoutY(tempPos + 30);
             temp[pos[0]][pos[1]][1] = 1;
 
             // DELETE id pick up cards
             playerClass.setCardsPickupID_NULL();
-//            countPickup--;
-//            cardIdPickup[countPickup] = null;
-//            cardIdPickupSplit[countPickup] = null;
         }
-
-//        System.out.println(cardIdPickupSplit[0][1] + " " + cardIdPickupSplit[1][1]); ใช่
-        if (playerClass.getCardsPickupID_count() == 2)   // disable
+        if (playerClass.getCardsPickupID_count() == 2)                                                                  // disable
             Btn_Place.setDisable(false);
         else
             Btn_Place.setDisable(true);
@@ -315,10 +271,74 @@ public class Controller_Play {
         }
 
         playerClass.setCardsChecked(temp);
-//        setCardsChecked(temp);
     }
 
-    public void BtnEndTurn(MouseEvent mouseEvent) {
-        botClass.checkCardMatch();
+    //------------------------------------------------------------------------------------------------------------------
+    // Button: End Turn
+
+    public void BtnEndTurn(MouseEvent mouseEvent) throws InterruptedException {
+        Btn_EndTurn.setDisable(true);
+        // greyed out when end turn
+        colorAdjust.setBrightness(-0.2);
+        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
+            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
+                if (playerClass.getCardsChecked()[i][j][0] == 0 && playerClass.getCardsChecked()[i][j][1] <= 1)
+                    imgArraysMethod()[i][j].setEffect(colorAdjust);
+            }
+        }
+        for(int i = 0;i <3;i++){
+            botClass.checkCardMatch(i);
+        }
+
+        int cardBotPlaceCount = 0;
+
+        // set null back cards
+        for (int i = 0; i < backCards.length; i++) {
+            for (int j = 0; j < botClass.getCardPlace()[i]; j++) {
+                if (cardBotPlaceCount < 2) {
+//                    System.out.println(">> " + cardBotPlaceCount);
+                    cardBotPlaceCount++;
+                    backCards[i][j].visibleProperty().setValue(false);
+                }
+                else if (cardBotPlaceCount >= 2) {
+//                    System.out.println("interrupt Loop");
+//                    interrupt(1000000);
+                    cardBotPlaceCount = 0;
+                    j--;
+                }
+
+
+            }
+        }
+
+        // print count bot place
+        for (int i = 0; i < botClass.getCardPlace().length; i++) {
+            System.out.println("bot" + i + ":" + botClass.getCardPlace()[i]);
+        }
+
+        ImageView[][] imageView = imgArraysMethod();
+        for (int i = 0, tempRound = 0; i < botClass.getBot().length; i++) {     // i bot ค่าย
+            for (int j = 0; j < botClass.getBot()[i].length; j++) {             // j suit
+                for (int k = 0; k < botClass.getBot()[i][j].length; k++) {      // k num
+                    if (botClass.getBot()[i][j][k] == 2) {
+                        System.out.println(i + " " + j + " " + k);
+                        imageView[j][k].visibleProperty().setValue(true);
+                        if (tempRound == 0) {
+                            imageView[j][k].setLayoutX(300);
+                            imageView[j][k].setLayoutY(300);
+                            tempRound++;
+                        }
+                        else if (tempRound == 1) {
+                            imageView[j][k].setLayoutX(350);
+                            imageView[j][k].setLayoutY(300);
+                            tempRound--;
+                        }
+                    }
+                }
+            }
+        }
     }
+
+
+    //------------------------------------------------------------------------------------------------------------------
 }

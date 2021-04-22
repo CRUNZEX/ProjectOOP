@@ -44,7 +44,7 @@ public class PlayerClass {
                 {"Club_1", "Club_2", "Club_3", "Club_4", "Club_5", "Club_6", "Club_7", "Club_8", "Club_9", "Club_10", "Club_11", "Club_12", "Club_13"}
         };
         
-        cardsRand = cardsClass.random();
+        setCardsRand();
         
         cardsPickupID = new String[2];
         cardsPickupID_split = new String[2][2];
@@ -56,10 +56,18 @@ public class PlayerClass {
             }
         }
     }
+    
+    public PlayerClass(boolean use) {
+        System.out.println("use");
+    }
 
     //------------------------------------------------------------------------------------------------------------------
     // getter setter
         // -----
+    public void setCardsRand() {
+        cardsRand = cardsClass.random();
+    }
+    
     public int[][] getCardsRand() {
         return cardsRand;
     }

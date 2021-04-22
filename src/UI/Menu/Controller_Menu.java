@@ -1,10 +1,13 @@
 package UI.Menu;
 
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -15,12 +18,14 @@ public class Controller_Menu {
     public Button Btn_Play;
     public Button Btn_How;
     public Button Btn_Exit;
+    public Group group = new Group();
 
     // Method
     public void Change_Play(MouseEvent event) throws IOException {
         // create stage
         Parent rootHow = FXMLLoader.load(getClass().getResource("../Play/Play.fxml"));
-        Scene rootHowScene = new Scene(rootHow);
+        group.getChildren().add(rootHow);
+        Scene rootHowScene = new Scene(group);
 
         // stage
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();

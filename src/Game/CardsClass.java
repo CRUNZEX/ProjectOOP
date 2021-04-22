@@ -38,26 +38,6 @@ public class CardsClass {
             cardPlay[(card[i]/13)][card[i]%13] = i%4;
         }
 
-        // test print
-//        for (int i = 0; i < cardPlay.length; i++) {
-//            for (int j = 0; j < cardPlay[i].length; j++) {
-//                System.out.println("Suit:" + i + "\tNum:" + j + "\tPlayer:" + cardPlay[i][j]);
-//            }
-//        }
-
         return cardPlay;
-    }
-
-    public boolean checkCard(int numOnCard) {
-        int temp = 0;
-        for (int j = 0; j < cardPlay[numOnCard].length; j++) {
-            if (cardPlay[numOnCard][j] == 0)
-                temp++;
-        }
-
-        if (temp >= 2)
-            return true;
-        else
-            return false;
     }
 }

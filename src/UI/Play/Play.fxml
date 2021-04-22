@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Play.Controller_Play">
+<AnchorPane fx:id="MainPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Play.Controller_Play">
    <children>
       <Button fx:id="Btn_Rand" disable="true" layoutX="946.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#BtnRand" prefHeight="51.0" prefWidth="187.0" text="Random">
          <font>
@@ -296,10 +296,15 @@
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="Btn_endturn" disable="true" layoutX="1114.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#BtnEndTurn" text="End Turn">
+      <Button fx:id="Btn_EndTurn" disable="true" layoutX="1114.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#BtnEndTurn" text="End Turn">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
+      <ImageView fx:id="Arrow" fitHeight="150.0" fitWidth="200.0" layoutX="540.0" layoutY="285.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../Image/arrow.png" />
+         </image>
+      </ImageView>
    </children>
 </AnchorPane>
