@@ -3,17 +3,17 @@ package UI.Play;
 import Game.BotClass;
 import Game.PlayerClass;
 import UI.Menu.Controller_Menu;
-import javafx.event.EventHandler;
+import javafx.animation.KeyFrame;
+import javafx.animation.Timeline;
 import javafx.scene.control.Button;
 import javafx.scene.effect.ColorAdjust;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.util.Duration;
 
-import javax.swing.*;
-
-public class Controller_Play extends Controller_Menu {
+public class Controller_Play {
     //------------------------------------------------------------------------------------------------------------------
     /*
 
@@ -24,8 +24,8 @@ public class Controller_Play extends Controller_Menu {
     public AnchorPane MainPane;
     public ImageView Arrow;
 
-    private BotClass botClass = new BotClass();
     private PlayerClass playerClass = new PlayerClass();
+    private BotClass botClass = new BotClass(playerClass.getCardsRand());
     ImageView[][] backCards = new ImageView[3][13];
 
     // color
@@ -61,7 +61,7 @@ public class Controller_Play extends Controller_Menu {
 
     private void backCards() {
         // load image
-        Image image = new Image("Image/black_joker.png");
+        Image image = new Image("Image/Backcard.png");
 
         for (int i = 0; i < backCards.length; i++) {
             for (int j = 0; j < backCards[i].length; j++) {
@@ -80,28 +80,81 @@ public class Controller_Play extends Controller_Menu {
         }
     }
 
-    private void interrupt(long time) {
-        long end = 0;
-        while (end < time) {
-            end++;
-        }
-        System.out.println("interrupt");
-    }
-
     //------------------------------------------------------------------------------------------------------------------
     // Button: Random
 
-    public void BackCardsClick(int i) {
-        if (randDirect == 0 && i == 0) {
-            System.out.println("หยิบได้!" + i);
+    public void BackCardsClick(int bot) {
+        if (randDirect == 0 && bot == 0) {
+            System.out.println("หยิบได้!" + bot);
+
+            int[] tempPos = botClass.playerPickCard(bot);
+            System.out.println(">> " + tempPos[0] + " " + tempPos[1]);
+
+            ImageView[][] imageViews = imgArraysMethod();
+            int[][][] tempPlayer = playerClass.getCardsChecked();
+
+            for (int i = 0; i < imgArraysMethod().length; i++) {
+                for (int j = 0; j < imgArraysMethod().length; j++) {
+                    if (i == tempPos[0] && j == tempPos[1]) {
+                        tempPlayer[i][j][0] = 0;
+                        //imageViews[i][j].visibleProperty().setValue(true);
+                        imageViews[i][j].setVisible(true);
+                        imageViews[i][j].setLayoutX(120);
+                        imageViews[i][j].setLayoutY(650);
+                        imageViews[i][j].setDisable(false);
+                        imageViews[i][j].toBack();
+                    }
+                }
+}
+
+            playerClass.setCardsChecked(tempPlayer);
+            playerClass.checkDuplicate();
+
         }
-        else if (randDirect == 1 && i == 1) {
-            System.out.println("หยิบได้!" + i);
+        else if (randDirect == 1 && bot == 1) {
+            System.out.println("หยิบได้!" + bot);
+
+            int[] tempPos = botClass.playerPickCard(bot);
+            System.out.println(">> " + tempPos[0] + " " + tempPos[1]);
+
+            ImageView[][] imageViews = imgArraysMethod();
+            int[][][] tempPlayer = playerClass.getCardsChecked();
+
+            for (int i = 0; i < imageViews.length; i++) {
+                for (int j = 0; j < imageViews[i].length; j++) {
+                    if (i == tempPos[0] && j == tempPos[1]) {
+                        tempPlayer[i][j][0] = 0;
+                        imageViews[i][j].visibleProperty().setValue(true);
+                        imageViews[i][j].setLayoutX(120);
+                        imageViews[i][j].setLayoutY(650);
+                        imageViews[i][j].setDisable(false);
+                        imageViews[i][j].toBack();
+                    }
+                }
+
+
+                playerClass.setCardsChecked(tempPlayer);
+                playerClass.checkDuplicate();
+            }
         }
         else
-            System.out.println("ไม่ให้!" + i);
-    }
+            System.out.println("ไม่ให้!" + bot);
 
+        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
+            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
+                System.out.print(playerClass.getCardsChecked()[i][j][0] + " ");
+            }
+            System.out.println();
+        }
+        System.out.println();
+
+        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
+            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
+                System.out.print(playerClass.getCardsChecked()[i][j][1] + " ");
+            }
+            System.out.println();
+        }
+    }
     public void BtnRand(MouseEvent mouseEvent) {
         // greyed out button
         Btn_Rand.setDisable(true);
@@ -112,12 +165,12 @@ public class Controller_Play extends Controller_Menu {
         colorAdjust.setBrightness(-0.2);
         playerClass.checkDuplicate();
 
-        backCards();
+        backCards();        // load image & set position
 
         // random
-        for (int i = 0, round = 0; i < playerClass.getCardsRand().length; i++) {
-            for (int j = 0; j < playerClass.getCardsRand()[i].length; j++) {
-                if (playerClass.getCardsRand()[i][j] == 0) {
+        for (int i = 0, round = 0; i < playerClass.cards().length; i++) {
+            for (int j = 0; j < playerClass.cards()[i].length; j++) {
+                if (playerClass.cards()[i][j] == 0) {
                     CardImgArrays[i][j].setLayoutX((round * 40) + 200);                                                 // set new position
                     CardImgArrays[i][j].setLayoutY(650);
                     round++;
@@ -126,7 +179,8 @@ public class Controller_Play extends Controller_Menu {
                         CardImgArrays[i][j].setEffect(colorAdjust);
                 }
                 else {
-                    CardImgArrays[i][j].visibleProperty().setValue(false);
+                    CardImgArrays[i][j].setVisible(false);
+//                    CardImgArrays[i][j].visibleProperty().setValue(false);
                     CardImgArrays[i][j].setDisable(true);
                 }
             }
@@ -301,8 +355,7 @@ public class Controller_Play extends Controller_Menu {
                     backCards[i][j].visibleProperty().setValue(false);
                 }
                 else if (cardBotPlaceCount >= 2) {
-//                    System.out.println("interrupt Loop");
-//                    interrupt(1000000);
+
                     cardBotPlaceCount = 0;
                     j--;
                 }
@@ -316,29 +369,77 @@ public class Controller_Play extends Controller_Menu {
             System.out.println("bot" + i + ":" + botClass.getCardPlace()[i]);
         }
 
+        playerClass.checkCard();
+        System.out.println();
+
         ImageView[][] imageView = imgArraysMethod();
+        int[][][] tempCards = playerClass.getCardsChecked();
         for (int i = 0, tempRound = 0; i < botClass.getBot().length; i++) {     // i bot ค่าย
-            for (int j = 0; j < botClass.getBot()[i].length; j++) {             // j suit
-                for (int k = 0; k < botClass.getBot()[i][j].length; k++) {      // k num
-                    if (botClass.getBot()[i][j][k] == 2) {
+            System.out.println("bot" + i);
+            for (int j = 0; j < 13; j++) {             // j num
+                for (int k = 0; k < 4; k++) {      // k suit
+                    if (botClass.getBot()[i][k][j] == 2) {
+
+                        tempCards[k][j][1] = 3;         // set value place cards on stage
                         System.out.println(i + " " + j + " " + k);
-                        imageView[j][k].visibleProperty().setValue(true);
+
+                        // set position cards place on stage
+                        imageView[k][j].visibleProperty().setValue(true);
                         if (tempRound == 0) {
-                            imageView[j][k].setLayoutX(300);
-                            imageView[j][k].setLayoutY(300);
+                            imageView[k][j].setLayoutX(300);
+                            imageView[k][j].setLayoutY(300);
+                            imageView[k][j].toFront();
                             tempRound++;
-                        }
-                        else if (tempRound == 1) {
-                            imageView[j][k].setLayoutX(350);
-                            imageView[j][k].setLayoutY(300);
+                        } else if (tempRound == 1) {
+                            imageView[k][j].setLayoutX(350);
+                            imageView[k][j].setLayoutY(300);
+                            imageView[k][j].toFront();
                             tempRound--;
                         }
                     }
                 }
             }
         }
-    }
 
+        playerClass.setCardsChecked(tempCards);
+
+
+        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
+            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
+                System.out.println(playerClass.getCardsChecked()[i][j][1] + " ");
+            }
+            System.out.println();
+        }
+//        ImageView[][] imageView = imgArraysMethod();
+//        long start = System.currentTimeMillis();
+//        for (int i = 0, tempRound = 0; i < botClass.getBot().length; i++) {     // i bot ค่าย
+//            if (start + 1000 <= System.currentTimeMillis()) {
+//                System.out.println(start);
+//                for (int j = 0; j < 13; j++) {             // j num
+//                    for (int k = 0; k < 4; k++) {      // k suit
+//                        if (botClass.getBot()[i][k][j] == 2) {
+//                            System.out.println(i + " " + j + " " + k);
+//                            imageView[k][j].visibleProperty().setValue(true);
+//                            if (tempRound == 0) {
+//                                imageView[k][j].setLayoutX(300);
+//                                imageView[k][j].setLayoutY(300);
+//                                imageView[k][j].toFront();
+//                                tempRound++;
+//                            } else if (tempRound == 1) {
+//                                imageView[k][j].setLayoutX(350);
+//                                imageView[k][j].setLayoutY(300);
+//                                imageView[k][j].toFront();
+//                                tempRound--;
+//                            }
+//                        }
+//                    }
+//                }
+//                start = System.currentTimeMillis();
+//            }
+//            else
+//                i--;
+//        }
+    }
 
     //------------------------------------------------------------------------------------------------------------------
 }

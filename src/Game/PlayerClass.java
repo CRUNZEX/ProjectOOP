@@ -43,32 +43,29 @@ public class PlayerClass {
                 {"Diamond_1", "Diamond_2", "Diamond_3", "Diamond_4", "Diamond_5", "Diamond_6", "Diamond_7", "Diamond_8", "Diamond_9", "Diamond_10", "Diamond_11", "Diamond_12", "Diamond_13"},
                 {"Club_1", "Club_2", "Club_3", "Club_4", "Club_5", "Club_6", "Club_7", "Club_8", "Club_9", "Club_10", "Club_11", "Club_12", "Club_13"}
         };
-        
-        setCardsRand();
+
+        cardsRand = cardsClass.random();
         
         cardsPickupID = new String[2];
         cardsPickupID_split = new String[2][2];
         cardsPickupID_count = 0;
 
-        for (int i = 0; i < cardsRand.length; i++) {                        // assign cards from random to main( cardChecked )
+        for (int i = 0; i < cardsRand.length; i++) {                                                                    // assign cards from random to main( cardChecked )
             for (int j = 0; j < cardsRand[i].length; j++) {
                 cardsChecked[i][j][0] = cardsRand[i][j];
             }
         }
     }
-    
-    public PlayerClass(boolean use) {
-        System.out.println("use");
-    }
 
     //------------------------------------------------------------------------------------------------------------------
     // getter setter
         // -----
-    public void setCardsRand() {
-        cardsRand = cardsClass.random();
-    }
-    
+
     public int[][] getCardsRand() {
+        return cardsRand;
+    }
+
+    public int[][] cards() {
         return cardsRand;
     }
 
@@ -95,6 +92,10 @@ public class PlayerClass {
         if (cardsPickupID_count == 2)
             Arrays.sort(this.cardsPickupID);
     }
+
+    public String[] getCardsPickupID() {
+        return cardsPickupID;
+    }
     
     public void setCardsPickupID_NULL() {
         cardsPickupID_count--;
@@ -105,10 +106,6 @@ public class PlayerClass {
     public void setCardsPickupID_FILLNULL() {
         Arrays.fill(cardsPickupID, null);
         Arrays.fill(cardsPickupID_split, null);
-    }
-
-    public String[] getCardsPickupID() {
-        return cardsPickupID;
     }
     
         // -----
@@ -132,27 +129,38 @@ public class PlayerClass {
     //------------------------------------------------------------------------------------------------------------------
     // method
 
+    public void checkCard() {
+        int a= 0;
+        for (int i = 0; i < cards().length; i++) {
+            for (int j = 0; j < cards()[i].length; j++) {
+                System.out.print(cards()[i][j] + " ");
+                a++;
+            }
+        }
+        System.out.println(">> " + a);
+    }
+
     public void checkDuplicate() {
         int[] tempCount = new int[13];
 
-        for (int i = 0; i < getCardsChecked().length; i++) {                // check count of number on cards
+        for (int i = 0; i < getCardsChecked().length; i++) {                                                            // check count of number on cards
             for (int j = 0; j < getCardsChecked()[i].length; j++) {
                 if (getCardsChecked()[i][j][0] == 0)
                     tempCount[j]++;
             }
         }
 
-        for (int i = 0; i < getCardsChecked().length; i++) {                // assign 1 if duplicate
+        for (int i = 0; i < getCardsChecked().length; i++) {                                                            // assign 1 if duplicate
             for (int j = 0; j < getCardsChecked()[i].length; j++) {
                 if (tempCount[j] > 1)
-                    cardsChecked[i][j][1] = 1;                              // duplicate
+                    cardsChecked[i][j][1] = 1;                                                                          // duplicate
                 else
                     cardsChecked[i][j][1] = 0;
             }
         }
     }
     
-    public int[] checkIndex(String id) {                     // check index between 2 id
+    public int[] checkIndex(String id) {                                                                                // check index between 2 id
         int[] tempPos = new int[2];
 
         for (int i = 0; i < getImgArraysID().length; i++) {
