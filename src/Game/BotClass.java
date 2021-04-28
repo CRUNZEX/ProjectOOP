@@ -67,7 +67,7 @@ public class BotClass {
     public void checkCardMatch(int botNum) {
         for (int i = 0; i < cardBotCheck.length; i++) { //Num
             int Checktwo = 0;
-            for (int j = 0; j < bot[botNum].length; j++) { //Suit                
+            for (int j = 0; j < bot[botNum].length; j++) { //Suit
                 if (cardBotCheck[i][botNum] >= 2 && bot[botNum][j][i] == 1) {
 //                    System.out.println("bot " + botNum + " " + j + " "+ i);
                     Checktwo++;
@@ -109,32 +109,72 @@ public class BotClass {
                     bot[botNum][i][j] = 0;
                     cardBotCheck[j][botNum]--;
                     amountCard[botNum]--;
+                    tempCount++;
+
+                    return cardPick;
                 }
             }
         }
         return cardPick;
     }
-    
-    public void botPickCardPlayer(int botNum,int suit,int num){
+
+    public void botPickCardPlayer(int botNum, int suit, int num) {
         bot[botNum][suit][num] = 1;
         cardBotCheck[num][botNum]++;
         amountCard[botNum]++;
     }
 
-    public void botPickCardbot(int botNum) {
-        int numCardsOnBotHand = (int) Math.round(Math.random() * amountCard[botNum]);                                   // random num on bot handles
-        System.out.println("numcardsBot : " + numCardsOnBotHand);
-        for (int i = 0, tempCount = 0; i < 4; i++) { //Suit
-            for (int j = 0; j < 13; j++) { //Num
-                if (bot[botNum][i][j] == 1)
-                    tempCount++;
+    public void botPickCardbot(int direction) {
+        // random num on bot handles
+        //System.out.println("numcardsBot : " + numCardsOnBotHand);
+        for (int botNum = 0; botNum < 3; botNum++) {
+            if (botNum != direction) {
+                int numCardsOnBotHand = (int) Math.round(Math.random() * amountCard[botNum]);
+                for (int i = 0, tempCount = 0; i < 4; i++) { //Suit
+                    for (int j = 0; j < 13; j++) { //Num
+                        if (bot[botNum][i][j] == 1)
+                            tempCount++;
 
-                if (tempCount == numCardsOnBotHand) {
-                    bot[botNum][i][j] = 0;
-                    cardBotCheck[j][botNum]--;
-                    amountCard[botNum]--;
+                        if (tempCount == numCardsOnBotHand) {
+                            bot[botNum][i][j] = 0;
+                            cardBotCheck[j][botNum]--;
+                            amountCard[botNum]--;
+                            tempCount++;
+
+                            if (direction == 0) {
+                                int botNumpick = (botNum + 1) % 3;
+                                bot[botNumpick][i][j] = 1;
+                                cardBotCheck[j][botNumpick]++;
+                                amountCard[botNumpick]++;
+                                System.out.println("Bot" + botNumpick + " pickCard:" + i + "|" + j + " Frombot" + botNum);
+                            } else if (direction == 1) {
+                                int botNumpick = botNum - 1;
+                                if (botNumpick == -1)
+                                    botNumpick = 2;
+                                bot[botNumpick][i][j] = 1;
+                                cardBotCheck[j][botNumpick]++;
+                                amountCard[botNumpick]++;
+                                System.out.println("Bot" + botNumpick + " pickCard:" + i + "|" + j + " Frombot" + botNum);
+                            }
+                        }
+                    }
                 }
             }
+        }
+    }
+
+    public void checkCardOnHand() {//checkcardบนมือบอทเฉยนะนพ
+        for (int i = 0; i < bot.length; i++) { //bot
+            System.out.print("Bot" + i + ": ");
+            for (int j = 0; j < bot[i].length; j++) {//suit
+                for (int k = 0; k < bot[i][j].length; k++) {//num
+                    if (bot[i][j][k]==1)
+                        System.out.print(j + "|" + k + " ");
+
+                }
+
+            }
+            System.out.println();
         }
     }
 }
