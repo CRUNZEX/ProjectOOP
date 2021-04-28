@@ -10,7 +10,7 @@ public class PlayerClass {
         0(Player) 1(Bot1) 2(Bot2) 3(Bot3)
 
      CardsChecked:
-        - [][][0] : Cards
+        - [][][0] : Cards -> 0(Player) 1(Bot1) 2(Bot2) 3(Bot3)
         - [][][1]
             0 not duplicate -> gray out in first turn
             1 duplicate -> light in first turn
@@ -71,7 +71,21 @@ public class PlayerClass {
 
         // -----
     public void setCardsChecked(int[][][] cardsChecked) {
+        System.out.println("SET แล้วนะCARDS CHECKED!!");
+        System.out.println();
         this.cardsChecked = cardsChecked;
+        int tempCount = 0;
+        for (int i = 0; i < this.cardsChecked.length; i++) {
+            for (int j = 0; j < this.cardsChecked[i].length; j++) {
+                System.out.print(this.cardsChecked[i][j][1] + " ");
+                if (this.cardsChecked[i][j][1] == 3)
+                    tempCount++;
+            }
+            System.out.println();
+        }
+
+        System.out.println("CARDS PLACE: " + tempCount);
+        System.out.println();
     }
 
     public int[][][] getCardsChecked() {
