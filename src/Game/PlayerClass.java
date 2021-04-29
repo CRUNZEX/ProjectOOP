@@ -22,6 +22,7 @@ public class PlayerClass {
     
     private CardsClass cardsClass;
     private int[][][] cardsChecked;                                         // main
+    private int[][][] cardsCheckReserve;
     private int[][] cardsRand;                                              // random
     
     private String[][] imgArraysID;                                         // image id name
@@ -37,6 +38,7 @@ public class PlayerClass {
         // assign
         cardsClass = new CardsClass();
         cardsChecked = new int[4][13][10];
+        cardsCheckReserve = new int[4][13][10];
         imgArraysID = new String[][]{
                 {"Spade_1", "Spade_2", "Spade_3", "Spade_4", "Spade_5", "Spade_6", "Spade_7", "Spade_8", "Spade_9", "Spade_10", "Spade_11", "Spade_12", "Spade_13"},
                 {"Heart_1", "Heart_2", "Heart_3", "Heart_4", "Heart_5", "Heart_6", "Heart_7", "Heart_8", "Heart_9", "Heart_10", "Heart_11", "Heart_12", "Heart_13"},
@@ -78,8 +80,13 @@ public class PlayerClass {
         for (int i = 0; i < this.cardsChecked.length; i++) {
             for (int j = 0; j < this.cardsChecked[i].length; j++) {
                 System.out.print(this.cardsChecked[i][j][1] + " ");
-                if (this.cardsChecked[i][j][1] == 3)
+                if (this.cardsChecked[i][j][1] == 3) {
                     tempCount++;
+                    this.cardsChecked[i][j][1] = 3;
+                }
+                if (cardsCheckReserve[i][j][1] == 3 && this.cardsChecked[i][j][1] != 3) {
+                    cardsChecked[i][j][1] = 3;
+                }
             }
             System.out.println();
         }
@@ -142,6 +149,17 @@ public class PlayerClass {
         // -----
     //------------------------------------------------------------------------------------------------------------------
     // method
+    
+    public int amountCards() {
+        int amount = 0;
+        for (int i = 0; i < getCardsChecked().length; i++) {
+            for (int j = 0; j < getCardsChecked()[i].length; j++) {
+                if (getCardsChecked()[i][j][0] == 0 && getCardsChecked()[i][j][1] != 3)
+                    amount++;
+            }
+        }
+        return amount;
+    }
 
     public void checkCard() {
         int a= 0;
@@ -166,9 +184,9 @@ public class PlayerClass {
 
         for (int i = 0; i < getCardsChecked().length; i++) {                                                            // assign 1 if duplicate
             for (int j = 0; j < getCardsChecked()[i].length; j++) {
-                if (tempCount[j] > 1)
+                if (tempCount[j] > 1 && getCardsChecked()[i][j][1] != 3)
                     cardsChecked[i][j][1] = 1;                                                                          // duplicate
-                else
+                else if (getCardsChecked()[i][j][1] != 3)
                     cardsChecked[i][j][1] = 0;
             }
         }

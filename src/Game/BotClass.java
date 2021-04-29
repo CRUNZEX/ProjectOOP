@@ -100,8 +100,13 @@ public class BotClass {
         System.out.println("numcardsBot: " + numCardsOnBotHand);
         for (int i = 0, tempCount = 0; i < 4; i++) { //Suit
             for (int j = 0; j < 13; j++) { //Num
-                if (bot[botNum][i][j] == 1)
+                if (bot[botNum][i][j] == 1 && tempCount == 0) {
                     tempCount++;
+                    cardPick[0] = i; //Suit
+                    cardPick[1] = j; //Num
+                } else if (bot[botNum][i][j] == 1)
+                    tempCount++;
+
 
                 if (tempCount == numCardsOnBotHand) {
                     cardPick[0] = i; //Suit
@@ -113,6 +118,7 @@ public class BotClass {
 
                     return cardPick;
                 }
+
             }
         }
         return cardPick;
@@ -157,6 +163,8 @@ public class BotClass {
                                 System.out.println("Bot" + botNumpick + " pickCard:" + i + "|" + j + " Frombot" + botNum);
                             }
                         }
+
+
                     }
                 }
             }
@@ -168,7 +176,7 @@ public class BotClass {
             System.out.print("Bot" + i + ": ");
             for (int j = 0; j < bot[i].length; j++) {//suit
                 for (int k = 0; k < bot[i][j].length; k++) {//num
-                    if (bot[i][j][k]==1)
+                    if (bot[i][j][k] == 1)
                         System.out.print(j + "|" + k + " ");
 
                 }
