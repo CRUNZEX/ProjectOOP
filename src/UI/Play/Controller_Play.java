@@ -49,7 +49,7 @@ public class Controller_Play {
     //------------------------------------------------------------------------------------------------------------------
     // method
 
-    private ImageView[][] imgArraysMethod() {                                   // imgArrays
+    private ImageView[][] imgArraysMethod() {                                                                           // imgArrays
         return new ImageView[][]{
                 {Spade_1, Spade_2, Spade_3, Spade_4, Spade_5, Spade_6, Spade_7, Spade_8, Spade_9, Spade_10, Spade_11, Spade_12, Spade_13},
                 {Heart_1, Heart_2, Heart_3, Heart_4, Heart_5, Heart_6, Heart_7, Heart_8, Heart_9, Heart_10, Heart_11, Heart_12, Heart_13},
@@ -58,13 +58,12 @@ public class Controller_Play {
         };
     }
 
-    public int randomDirection() {
+    public int randomDirection() {                                                                                      // random direction
         return (int) Math.round(Math.random());
     }
 
     private void backCards() {
-        // load image
-        Image image = new Image("Image/Backcard.png");
+        Image image = new Image("Image/Backcard.png");                                                                // load image
 
         for (int i = 0; i < backCards.length; i++) {
             for (int j = 0; j < backCards[i].length; j++) {
@@ -77,8 +76,6 @@ public class Controller_Play {
                 backCards[i][j].setLayoutY(i * 150);
 
                 backCards[i][j].addEventFilter(MouseEvent.MOUSE_CLICKED, mouseEvent -> BackCardsClick(mouseEvent));
-//                backCards[i][j].addEventHandler(MouseEvent.MOUSE_CLICKED, mouseEvent -> BackCardsClick(mouseEvent));
-                //backCards[i][j].setOnMouseClicked(mouseEvent -> BackCardsClick(mouseEvent));
                 MainPane.getChildren().add(backCards[i][j]);
                 backCards[i][j].setDisable(true);
             }
@@ -88,13 +85,12 @@ public class Controller_Play {
     private void backCardsSetDisable(boolean bool) {
         for (int i = 0; i < backCards.length; i++) {
             for (int j = 0; j < backCards[i].length; j++) {
-//                backCards[i][j].setOnMouseClicked(mouseEvent -> BackCardsClick(mouseEvent));
                 backCards[i][j].setDisable(bool);
             }
         }
     }
 
-    private int[][][] checkCardsPlaceOnStage(int[][][] temp) {
+    private int[][][] checkCardsPlaceOnStage(int[][][] temp) {          // check cards on stage (Reserve)
         for (int i = 0; i < temp.length; i++) {
             for (int j = 0; j < temp.length; j++) {
                 if (temp[i][j][1] == 3 && cards[i][j][1] != 3)
@@ -149,7 +145,6 @@ public class Controller_Play {
                     }
                 }
 
-
                 System.out.println("BACKCARDS CLICK!! BOT2");
                 playerClass.setCardsChecked(checkCardsPlaceOnStage(tempPlayer));
 //                playerClass.setCardsChecked(tempPlayer);
@@ -157,8 +152,11 @@ public class Controller_Play {
 
             }
 
+
+
             Btn_EndTurn.setDisable(false);
-        } else if (randDirect == 1 && playerPickupBot == false) {
+        }
+        else if (randDirect == 1 && playerPickupBot == false) {
             System.out.println("หยิบได้!" + randDirect);
 
             playerPickupBot = true;
@@ -189,7 +187,8 @@ public class Controller_Play {
             }
 
             Btn_EndTurn.setDisable(false);
-        } else
+        }
+        else
             System.out.println("ไม่ให้!" + randDirect);
 
     }
@@ -307,7 +306,8 @@ public class Controller_Play {
             System.out.println("PLACE CARDS SET!! (if)");
             playerClass.setCardsChecked(checkCardsPlaceOnStage(temp));
             playerClass.setCardsPickupID_count(0);
-        } else {
+        }
+        else {
             for (int count = 0; count < 2; ) {                                                                           // check for down 2 cards
                 for (int i = playerClass.getImgArraysID().length - 1; i >= 0; i--) {
                     for (int j = 0; j < playerClass.getImgArraysID()[i].length; j++) {
@@ -419,16 +419,16 @@ public class Controller_Play {
             //botClass.botPickCardPlayer();
             System.out.println(">> Round: " + Round);
             int[][][] temp = playerClass.getCardsChecked();
-            int numCardsOnPlayerHand = (int) Math.round(Math.random() * playerClass.amountCards());
+            int numCardsOnPlayerHand = (int) Math.round(Math.random() * (playerClass.amountCards()-1)+1);
             int finalI = 0, finalJ = 0;
             for (int i = 0, tempCount = 0; i < temp.length; i++) {
                 for (int j = 0; j < temp[i].length; j++) {
-                    if (temp[i][j][1] <= 1 && temp[i][j][0] == 0 && tempCount == 0) {
+                    if (temp[i][j][1] <= 1 && temp[i][j][0] == 0)
                         tempCount++;
-                        finalI = i;
-                        finalJ = j;
-                    } else if (temp[i][j][1] <= 1 && temp[i][j][0] == 0)
-                        tempCount++;
+//                        finalI = i;
+//                        finalJ = j;
+//                    } else if (temp[i][j][1] <= 1 && temp[i][j][0] == 0)
+//                        tempCount++;
 
                     if (tempCount == numCardsOnPlayerHand) {
                         tempCount++;
