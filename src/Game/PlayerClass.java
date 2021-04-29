@@ -91,6 +91,14 @@ public class PlayerClass {
             System.out.println();
         }
 
+        System.out.println("Player: ");
+        for (int i = 0; i < this.cardsChecked.length; i++) {
+            for (int j = 0; j < this.cardsChecked[i].length; j++) {
+                if (this.cardsChecked[i][j][1] <= 1 && this.cardsChecked[i][j][0] == 0)
+                    System.out.print(i + "|" + j + " ");
+            }
+        }
+
         System.out.println("CARDS PLACE: " + tempCount);
         System.out.println();
     }
