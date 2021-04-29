@@ -45,7 +45,6 @@ public class Controller_Play {
     public ImageView Heart_1, Heart_2, Heart_3, Heart_4, Heart_5, Heart_6, Heart_7, Heart_8, Heart_9, Heart_10, Heart_11, Heart_12, Heart_13;
     public ImageView Diamond_1, Diamond_2, Diamond_3, Diamond_4, Diamond_5, Diamond_6, Diamond_7, Diamond_8, Diamond_9, Diamond_10, Diamond_11, Diamond_12, Diamond_13;
     public ImageView Club_1, Club_2, Club_3, Club_4, Club_5, Club_6, Club_7, Club_8, Club_9, Club_10, Club_11, Club_12, Club_13;
-    public ImageView BackSide;
 
     //------------------------------------------------------------------------------------------------------------------
     // method
@@ -272,21 +271,8 @@ public class Controller_Play {
                         CardImgArrays[i][j].setEffect(colorAdjust);
                     }
                 }
-//                else {
-//                    CardImgArrays[i][j].setVisible(false);
-////                    CardImgArrays[i][j].visibleProperty().setValue(false);
-//                    CardImgArrays[i][j].setDisable(true);
-//                }
             }
         }
-
-//        System.out.print("Player: ");
-//        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
-//            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
-//                if (playerClass.getCardsChecked()[i][j][1] == 3)
-//                System.out.print(i + "|" + j + " ");
-//            }
-//        }
     }
 
     //------------------------------------------------------------------------------------------------------------------
@@ -302,24 +288,6 @@ public class Controller_Play {
 
     public void BtnPlace(MouseEvent mouseEvent) {
         int[][][] temp = playerClass.getCardsChecked();
-
-        // print test
-//        System.out.println("\n----------");
-//        for (int i = 0; i < playerClass.getCardsPickupID_split().length; i++) {
-//            for (int j = 0; j < playerClass.getCardsPickupID_split()[i].length; j++) {
-//                System.out.print(playerClass.getCardsPickupID_split()[i][j]);
-//            }
-//            System.out.print(" ");
-//        }
-//
-//        System.out.println();
-//        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
-//            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
-//                System.out.print(playerClass.getCardsChecked()[i][j][1] + " ");
-//            }
-//        }
-
-//        System.out.println();
 
         // check place cards
         if (playerClass.getCardsPickupID_split()[0][1].equals(playerClass.getCardsPickupID_split()[1][1])) {
@@ -461,7 +429,7 @@ public class Controller_Play {
                         finalJ = j;
                     } else if (temp[i][j][1] <= 1 && temp[i][j][0] == 0)
                         tempCount++;
-                    botClass.botPickCardbot(randDirect);
+
                     if (tempCount == numCardsOnPlayerHand) {
                         tempCount++;
                         temp[i][j][0] = (randDirect == 0) ? 1 : 0;
@@ -528,42 +496,6 @@ public class Controller_Play {
         playerClass.setCardsChecked(checkCardsPlaceOnStage(tempCards));
 
         playerCardsPosition(tempCards);
-
-//        for (int i = 0; i < playerClass.getCardsChecked().length; i++) {
-//            for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
-//                System.out.print(playerClass.getCardsChecked()[i][j][1] + " ");
-//            }
-//            System.out.println();
-//        }
-//        ImageView[][] imageView = imgArraysMethod();
-//        long start = System.currentTimeMillis();
-//        for (int i = 0, tempRound = 0; i < botClass.getBot().length; i++) {     // i bot ค่าย
-//            if (start + 1000 <= System.currentTimeMillis()) {
-//                System.out.println(start);
-//                for (int j = 0; j < 13; j++) {             // j num
-//                    for (int k = 0; k < 4; k++) {      // k suit
-//                        if (botClass.getBot()[i][k][j] == 2) {
-//                            System.out.println(i + " " + j + " " + k);
-//                            imageView[k][j].visibleProperty().setValue(true);
-//                            if (tempRound == 0) {
-//                                imageView[k][j].setLayoutX(300);
-//                                imageView[k][j].setLayoutY(300);
-//                                imageView[k][j].toFront();
-//                                tempRound++;
-//                            } else if (tempRound == 1) {
-//                                imageView[k][j].setLayoutX(350);
-//                                imageView[k][j].setLayoutY(300);
-//                                imageView[k][j].toFront();
-//                                tempRound--;
-//                            }
-//                        }
-//                    }
-//                }
-//                start = System.currentTimeMillis();
-//            }
-//            else
-//                i--;
-//        }
     }
     //------------------------------------------------------------------------------------------------------------------
 }

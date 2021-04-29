@@ -35,7 +35,10 @@ public class CardsClass {
 
         // id to arrays position
         for (int i = 0; i < card.length; i++) {
-            cardPlay[(card[i]/13)][card[i]%13] = i%4;
+            if (i != 51)
+                cardPlay[(card[i]/13)][card[i]%13] = i%4;
+            else
+                cardPlay[(card[i]/13)][card[i]%13] = 99;
         }
 
         return cardPlay;
