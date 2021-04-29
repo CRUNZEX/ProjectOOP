@@ -76,7 +76,9 @@ public class BotClass {
                         cardBotCheck[i][botNum] -= 2;
                         amountCard[botNum] -= 2;
                     }
-
+                    if (amountCard[botNum] == 1) {
+                        System.out.println(botNum + "Win  XD");
+                    }
                     cardPlace[botNum]++;
                 }
             }
@@ -138,7 +140,9 @@ public class BotClass {
                 int numCardsOnBotHand = (int) Math.round(Math.random() * amountCard[botNum]);
                 for (int i = 0, tempCount = 0; i < 4; i++) { //Suit
                     for (int j = 0; j < 13; j++) { //Num
-                        if (bot[botNum][i][j] == 1)
+                        if (bot[botNum][i][j] == 1 && tempCount == 0)
+                            tempCount = 0;
+                        else if (bot[botNum][i][j] == 1)
                             tempCount++;
 
                         if (tempCount == numCardsOnBotHand) {
