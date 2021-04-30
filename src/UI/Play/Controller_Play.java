@@ -189,11 +189,11 @@ public class Controller_Play {
 //            backCards[randDirect][tempCountBotHand[randDirect]].setVisible(false);
 //            backCards[randDirect][tempCountBotHand[randDirect]].setDisable(true);
 
-            for (int i = 0; i < backCards.length; i++) {
-                for (int j = 0; j < backCards[i].length; j++) {
-                    System.out.println("ิbo");// ปกติแล้ว ตอนกด endturn กันหดได้ทุกฝั่ง แล้ว ifelse เช็คเอา ตอนนี้กดได้ฝั่งเดียวอ่ะ  ?
-                }
-            }
+//            for (int i = 0; i < backCards.length; i++) {
+//                for (int j = 0; j < backCards[i].length; j++) {
+//                    System.out.println("ิbo");// ปกติแล้ว ตอนกด endturn กันหดได้ทุกฝั่ง แล้ว ifelse เช็คเอา ตอนนี้กดได้ฝั่งเดียวอ่ะ  ?
+//                }
+//            }
 
             Btn_EndTurn.setDisable(false);
         }
@@ -242,10 +242,12 @@ public class Controller_Play {
         for (int i = 0; i < imgArraysMethod().length; i++) {
             for (int j = 0; j < imgArraysMethod().length; j++) {
                 imgArraysMethod()[i][j].setEffect(colorAdjust);
-                imgArraysMethod()[i][j].setDisable(false);
+//                imgArraysMethod()[i][j].setDisable(false);
             }
         }
 
+        backCards[randDirect][botClass.getCardPlace()[randDirect]].setVisible(false);
+        botClass.setCardPlace_DEL(randDirect);
 
         System.out.println(mouseEvent.getPickResult().getIntersectedNode().getId());
     }
@@ -439,7 +441,7 @@ public class Controller_Play {
             for (int j = 0; j < playerClass.getCardsChecked()[i].length; j++) {
                 if (playerClass.getCardsChecked()[i][j][0] == 0 && playerClass.getCardsChecked()[i][j][1] <= 1)
                     imgArraysMethod()[i][j].setEffect(colorAdjust);
-                    imgArraysMethod()[i][j].setDisable(true);
+//                    imgArraysMethod()[i][j].setDisable(true);
             }
         }
 
