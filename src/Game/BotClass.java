@@ -22,26 +22,26 @@ public class BotClass {
         for (int i = 0; i < cards.length; i++) {
             //int countBot0 = 0, countBot1 = 0, countBot2 = 0;
             for (int j = 0; j < cards[i].length; j++) {
-//                bot[getCardsRand()[i][j] - 1][i][j] = 1;
-//                cardBotCheck[j][getCardsRand()[i][j] - 1]++;
 
-                //cardboard->0
-                if (cards[i][j] == 1) {
+                if (cards[i][j] == 1) {                                 // cardboard -> bot0
                     bot[0][i][j] = 1;
                     //countBot0++;
                     cardBotCheck[j][0]++;
                     amountCard[0]++;
-                } else if (cards[i][j] == 2) {
+                }
+                else if (cards[i][j] == 2) {                            // cardboard -> bot1
                     bot[1][i][j] = 1;
                     //countBot1++;
                     cardBotCheck[j][1]++;
                     amountCard[1]++;
-                } else if (cards[i][j] == 3) {
+                }
+                else if (cards[i][j] == 3) {                            // cardboard -> bot0
                     bot[2][i][j] = 1;
                     //countBot2++;
                     cardBotCheck[j][2]++;
                     amountCard[2]++;
                 }
+
             }
         }
         checkCard(cards);
@@ -49,25 +49,26 @@ public class BotClass {
 
     //------------------------------------------------------------------------------------------------------------------
     // getter setter
+
     public int[] getCardPlace() {
         return cardPlace;
-    }
-
-    public void setBot(int[][][] bot) {
-        this.bot = bot;
     }
 
     public int[][][] getBot() {
         return bot;
     }
 
+    public int[] getAmountCard() {
+        return amountCard;
+    }
+
     //------------------------------------------------------------------------------------------------------------------
     // method
 
-    public void checkCardMatch(int botNum) {
-        for (int i = 0; i < cardBotCheck.length; i++) { //Num
+    public void checkCardMatch(int botNum) {                                                                            // check cards between cards
+        for (int i = 0; i < cardBotCheck.length; i++) {                             // Num
             int Checktwo = 0;
-            for (int j = 0; j < bot[botNum].length; j++) { //Suit
+            for (int j = 0; j < bot[botNum].length; j++) {                          // Suit
                 if (cardBotCheck[i][botNum] >= 2 && bot[botNum][j][i] == 1) {
 //                    System.out.println("bot " + botNum + " " + j + " "+ i);
                     Checktwo++;
@@ -76,30 +77,19 @@ public class BotClass {
                         cardBotCheck[i][botNum] -= 2;
                         amountCard[botNum] -= 2;
                     }
-                    
+
                     cardPlace[botNum]++;
                 }
             }
         }
     }
 
-    public void checkCard(int[][] cards) {
-        int a = 0;
-        for (int i = 0; i < cards.length; i++) {
-            for (int j = 0; j < cards[i].length; j++) {
-                System.out.print(cards[i][j] + " ");
-                a++;
-            }
-        }
-        System.out.println(">> " + a);
-    }
-
-    public int[] playerPickCard(int botNum) {
-        int[] cardPick = new int[2]; // Cardที่playerหยิบไป
-        int numCardsOnBotHand = (int) Math.round((Math.random() * (amountCard[botNum] - 1)) + 1);                                   // random num on bot handles
+    public int[] playerPickCard(int botNum) {                                                                           // player pickup cards from bot
+        int[] cardPick = new int[2];                                                // Cardที่playerหยิบไป
+        int numCardsOnBotHand = (int) Math.round((Math.random() * (amountCard[botNum] - 1)) + 1);                       // random num on bot handles
         System.out.println("numcardsBot: " + numCardsOnBotHand);
-        for (int i = 0, tempCount = 0; i < 4; i++) { //Suit
-            for (int j = 0; j < 13; j++) { //Num
+        for (int i = 0, tempCount = 0; i < 4; i++) {                                // Suit
+            for (int j = 0; j < 13; j++) {                                          // Num
                 if (bot[botNum][i][j] == 1)
                     tempCount++;
 //                    cardPick[0] = i; //Suit
@@ -110,8 +100,8 @@ public class BotClass {
 
 
                 if (tempCount == numCardsOnBotHand) {
-                    cardPick[0] = i; //Suit
-                    cardPick[1] = j; //Num
+                    cardPick[0] = i;                        // Suit
+                    cardPick[1] = j;                        // Num
                     bot[botNum][i][j] = 0;
                     cardBotCheck[j][botNum]--;
                     amountCard[botNum]--;
@@ -131,16 +121,16 @@ public class BotClass {
         amountCard[botNum]++;
     }
 
-    public void botPickCardbot(int direction) {
+    public void botPickCardbot(int direction) {                                                                         // bot pivkup cards between bot
         // random num on bot handles
         //System.out.println("numcardsBot : " + numCardsOnBotHand);
-        
+
         for (int botNum = 0; botNum < 3; botNum++) {
             if (botNum != direction) {
                 int numCardsOnBotHand = (int) Math.round((Math.random() * (amountCard[botNum]-1) + 1));
-                for (int i = 0, tempCount = 0; i < 4; i++) { //Suit
-                    for (int j = 0; j < 13; j++) { //Num
-                        if (bot[botNum][i][j] == 1){
+                for (int i = 0, tempCount = 0; i < 4; i++) {        // Suit
+                    for (int j = 0; j < 13; j++) {                  // Num
+                        if (bot[botNum][i][j] == 1) {
                             tempCount++;
                         }
 //                        else if (bot[botNum][i][j] == 1)
@@ -154,6 +144,7 @@ public class BotClass {
 
                             if (direction == 0) {
                                 int botNumpick = (botNum + 1) % 3;
+
                                 bot[botNumpick][i][j] = 1;
                                 cardBotCheck[j][botNumpick]++;
                                 amountCard[botNumpick]++;
@@ -177,6 +168,9 @@ public class BotClass {
         }
     }
 
+    //------------------------------------------------------------------------------------------------------------------
+    // print check
+
     public void checkCardOnHand() {//checkcardบนมือบอทเฉยนะนพ
         for (int i = 0; i < bot.length; i++) { //bot
             System.out.print("Bot" + i + ": ");
@@ -191,4 +185,17 @@ public class BotClass {
             System.out.println();
         }
     }
+
+    public void checkCard(int[][] cards) {
+        int a = 0;
+        for (int i = 0; i < cards.length; i++) {
+            for (int j = 0; j < cards[i].length; j++) {
+                System.out.print(cards[i][j] + " ");
+                a++;
+            }
+        }
+        System.out.println(">> " + a);
+    }
+
+    //------------------------------------------------------------------------------------------------------------------
 }
