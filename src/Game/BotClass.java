@@ -54,6 +54,8 @@ public class BotClass {
         return cardPlace;
     }
 
+    public void setCardPlace_DEL(int bot) { this.cardPlace[bot]++; }
+
     public int[][][] getBot() {
         return bot;
     }
