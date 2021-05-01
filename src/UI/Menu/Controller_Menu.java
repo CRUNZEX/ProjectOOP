@@ -1,13 +1,12 @@
 package UI.Menu;
 
+import UI.Play.Controller_Play;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Group;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 
@@ -28,13 +27,15 @@ public class Controller_Menu {
         // create stage
         Parent rootHow = FXMLLoader.load(getClass().getResource("../Play/Play.fxml"));
         group.getChildren().add(rootHow);
-        Scene rootHowScene = new Scene(group);
+        Scene rootPlayScene = new Scene(group);
+
+//        rootPlayScene.getStylesheets().add("UI/Play/StylePlay.css");
 
         // stage
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 
         // display
-        window.setScene(rootHowScene);
+        window.setScene(rootPlayScene);
         window.show();
     }
 
