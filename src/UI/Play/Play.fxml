@@ -15,7 +15,7 @@
       </Button>
 
 <!--      Spade-->
-      <ImageView fx:id="Spade_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView id="imageCards" fx:id="Spade_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Image/0_1.png" />
          </image>
