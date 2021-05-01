@@ -1,0 +1,15 @@
+.root {
+    -fx-background-color: linear-gradient(violet, #ff9999);
+}
+
+.image-view {
+    -fx-transform: 250ms;
+
+}
+
+.image-view:hover {
+    -fx-rotate: 5;
+    -fx-effect: dropshadow( one-pass-box , rgba(0,0,0,0.8) , 30, 0.0 , 0 , 1);
+    -fx-translate-y: -25px;
+    -fx-focus-traversable: true;
+}
