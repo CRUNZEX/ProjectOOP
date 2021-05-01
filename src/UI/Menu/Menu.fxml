@@ -17,27 +17,27 @@
         <items>
           <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="720.0" prefWidth="1280.0" styleClass="anchor">
                <children>
-                  <ImageView fx:id="PlayAction" fitHeight="121.0" fitWidth="404.0" layoutX="138.0" layoutY="263.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="PlayAction" fitHeight="440.0" fitWidth="783.0" layoutX="-108.0" layoutY="116.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Image/play0.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="HowAction" fitHeight="149.0" fitWidth="494.0" layoutX="93.0" layoutY="410.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="HowAction" fitHeight="459.0" fitWidth="833.0" layoutX="-97.0" layoutY="235.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Image/Howtoplay0.png" />
                      </image>
                   </ImageView>
-                  <ImageView fx:id="ExitAction" fitHeight="102.0" fitWidth="380.0" layoutX="146.0" layoutY="556.0" pickOnBounds="true" preserveRatio="true">
+                  <ImageView fx:id="ExitAction" fitHeight="482.0" fitWidth="801.0" layoutX="-97.0" layoutY="397.0" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../../Image/Exit0.png" />
                      </image>
                   </ImageView>
-                  <Button fx:id="Btn_Play" layoutX="124.0" layoutY="269.0" mnemonicParsing="false" onMouseClicked="#Change_Play" onMouseEntered="#Play_Enter" onMouseExited="#Play_Exited" opacity="0.0" prefHeight="106.0" prefWidth="417.0" text="Play">
+                  <Button fx:id="Btn_Play" layoutX="102.0" layoutY="269.0" mnemonicParsing="false" onMouseClicked="#Change_Play" onMouseEntered="#Play_Enter" onMouseExited="#Play_Exited" opacity="0.0" prefHeight="106.0" prefWidth="417.0" text="Play">
                      <font>
                         <Font size="24.0" />
                      </font>
                   </Button>
-                  <Button fx:id="Btn_How" layoutX="92.0" layoutY="405.0" mnemonicParsing="false" onMouseClicked="#Change_How" onMouseEntered="#How_Enter" onMouseExited="#How_Exited" opacity="0.0" prefHeight="124.0" prefWidth="490.0" text="How to Play">
+                  <Button fx:id="Btn_How" layoutX="67.0" layoutY="397.0" mnemonicParsing="false" onMouseClicked="#Change_How" onMouseEntered="#How_Enter" onMouseExited="#How_Exited" opacity="0.0" prefHeight="135.0" prefWidth="510.0" text="How to Play">
                      <font>
                         <Font size="24.0" />
                      </font>
