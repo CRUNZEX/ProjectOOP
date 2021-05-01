@@ -6,16 +6,17 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="MainPane" prefHeight="720.0" prefWidth="1280.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Play.Controller_Play">
+<AnchorPane fx:id="MainPane" prefHeight="720.0" prefWidth="1280.0" styleClass="backGroundPlay" stylesheets="@playCss.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="UI.Play.Controller_Play">
    <children>
-      <Button fx:id="Btn_Rand" disable="true" layoutX="946.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#BtnRand" prefHeight="51.0" prefWidth="187.0" text="Random">
+      <Button fx:id="Btn_Rand" disable="true" layoutX="946.0" layoutY="34.0" mnemonicParsing="false" onMouseClicked="#BtnRand" prefHeight="51.0" prefWidth="187.0" styleClass="buttonRandom" stylesheets="@playCss.css" text="Random">
          <font>
             <Font size="32.0" />
          </font>
       </Button>
 
 <!--      Spade-->
-      <ImageView id="imageCards" fx:id="Spade_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_1" fitHeight="150.0" fitWidth="200.0" layoutX="39.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true" styleClass="am">
+
          <image>
             <Image url="@../../Image/0_1.png" />
          </image>
@@ -75,7 +76,7 @@
             <Image url="@../../Image/0_12.png" />
          </image>
       </ImageView>
-      <ImageView fx:id="Spade_13" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="Spade_13" fitHeight="150.0" fitWidth="200.0" layoutX="300.0" layoutY="0.0" onMouseClicked="#PickupCard" pickOnBounds="true" preserveRatio="true" styleClass="am">
          <image>
             <Image url="@../../Image/0_0.png" />
          </image>
@@ -286,17 +287,17 @@
 
 
 <!--      Button: Auto Matching-->
-      <Button fx:id="Btn_Swap" layoutX="1152.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#BtnSwap" prefHeight="69.0" prefWidth="89.0" text="Swap">
+      <Button fx:id="Btn_Swap" layoutX="1152.0" layoutY="33.0" mnemonicParsing="false" onMouseClicked="#BtnSwap" prefHeight="69.0" prefWidth="89.0" styleClass="buttonSwap" stylesheets="@playCss.css" text="Swap">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="Btn_Place" disable="true" layoutX="1153.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#BtnPlace" text="Place">
+      <Button fx:id="Btn_Place" disable="true" layoutX="1153.0" layoutY="639.0" mnemonicParsing="false" onMouseClicked="#BtnPlace" styleClass="buttonPlace" stylesheets="@playCss.css" text="Place">
          <font>
             <Font size="24.0" />
          </font>
       </Button>
-      <Button fx:id="Btn_EndTurn" disable="true" layoutX="1114.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#BtnEndTurn" text="End Turn">
+      <Button fx:id="Btn_EndTurn" disable="true" layoutX="1114.0" layoutY="564.0" mnemonicParsing="false" onMouseClicked="#BtnEndTurn" styleClass="buttonEndTurn" stylesheets="@playCss.css" text="End Turn">
          <font>
             <Font size="24.0" />
          </font>

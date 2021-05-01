@@ -18,6 +18,9 @@ public class Controller_Menu {
     public Button Btn_How;
     public Button Btn_Exit;
     public Group group = new Group();
+    public ImageView PlayAction;
+    public ImageView HowAction;
+    public ImageView ExitAction;
 
     // Method
     public void Change_Play(MouseEvent event) throws IOException {
@@ -53,5 +56,35 @@ public class Controller_Menu {
         // stage
         Stage stage = (Stage) Btn_Exit.getScene().getWindow();
         stage.close();
+    }
+
+    public void Play_Exited(MouseEvent event) {
+        Image play0 = new Image("/Image/play0.png");
+        PlayAction.setImage(play0);
+    }
+
+    public void Play_Enter(MouseEvent event) {
+        Image play1 = new Image("/Image/play1.png");
+        PlayAction.setImage(play1);
+    }
+
+    public void How_Exited(MouseEvent event) {
+        Image how0 = new Image("/Image/Howtoplay0.png");
+        HowAction.setImage(how0);
+    }
+
+    public void How_Enter(MouseEvent event) {
+        Image how1 = new Image("/Image/Howtoplay1.png");
+        HowAction.setImage(how1);
+    }
+
+    public void Exit_Exited(MouseEvent event) {
+        Image exit0 = new Image("/Image/Exit0.png");
+        ExitAction.setImage(exit0);
+    }
+
+    public void Exit_Enter(MouseEvent event) {
+        Image exit1 = new Image("/Image/Exit1.png");
+        ExitAction.setImage(exit1);
     }
 }
