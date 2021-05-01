@@ -372,7 +372,7 @@ public class Controller_Play {
                     for (int j = 0; j < playerClass.getImgArraysID()[i].length; j++) {
                         if (count < 2 && playerClass.getCardsPickupID()[count].equals(playerClass.getImgArraysID()[i][j]) && playerClass.getCardsChecked()[i][j][1] != 3) {
                             double tempPos = imgArraysMethod()[i][j].getLayoutY();
-                            imgArraysMethod()[i][j].setLayoutY(tempPos + 30);
+                            imgArraysMethod()[i][j].setLayoutY(650);
 //                            temp[i][j][1] = 1; //ตามมาอยู่มะดูว่ามันยังเซตเปน1มะ
 
                             count++;
@@ -412,7 +412,7 @@ public class Controller_Play {
         {
             // set position: UP
             System.out.println("Up\t");
-            mouseEvent.getPickResult().getIntersectedNode().setLayoutY(tempPos - 30);
+            mouseEvent.getPickResult().getIntersectedNode().setLayoutY(620);
             temp[pos[0]][pos[1]][1] = 2;
 
             // SET id pick up cards
@@ -422,7 +422,7 @@ public class Controller_Play {
         } else if (temp[pos[0]][pos[1]][1] == 2) {
             // set position: Down
             System.out.println("Down\t");
-            mouseEvent.getPickResult().getIntersectedNode().setLayoutY(tempPos + 30);
+            mouseEvent.getPickResult().getIntersectedNode().setLayoutY(650);
             temp[pos[0]][pos[1]][1] = 1;
 
             // DELETE id pick up cards
