@@ -13,11 +13,12 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Controller_End extends Controller_Play {
-    public Label Label_Result = labelPlay_Result;
+public class Controller_End_Win {
+    public Label Label_Result = new Label();
     public Button Btn_PlayAgain;
     public Button Btn_Exit;
     public Group group = new Group();
+
 
     public void Change_PlayAgain(MouseEvent mouseEvent) throws IOException {
         // create stage
