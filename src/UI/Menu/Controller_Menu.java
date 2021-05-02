@@ -29,8 +29,6 @@ public class Controller_Menu {
         group.getChildren().add(rootHow);
         Scene rootPlayScene = new Scene(group);
 
-//        rootPlayScene.getStylesheets().add("UI/Play/StylePlay.css");
-
         // stage
         Stage window = (Stage) ((Node)event.getSource()).getScene().getWindow();
 

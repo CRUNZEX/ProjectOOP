@@ -8,7 +8,6 @@ public class PlayerClass {
      === stage cards ===
      Cards: position to name of cards
         0(Player) 1(Bot1) 2(Bot2) 3(Bot3)
-
      CardsChecked:
         - [][][0] : Cards -> 0(Player) 1(Bot1) 2(Bot2) 3(Bot3)
         - [][][1]
@@ -19,14 +18,14 @@ public class PlayerClass {
                                                                                                                       */
     //------------------------------------------------------------------------------------------------------------------
     // data fields
-    
+
     private CardsClass cardsClass;
     private int[][][] cardsChecked;                                         // main
     private int[][][] cardsCheckReserve;
     private int[][] cardsRand;                                              // random
-    
+
     private String[][] imgArraysID;                                         // image id name
-    
+
     private String[] cardsPickupID;                                         // cards id pickup
     private String[][] cardsPickupID_split;
     private int cardsPickupID_count;
@@ -47,7 +46,7 @@ public class PlayerClass {
         };
 
         cardsRand = cardsClass.random();
-        
+
         cardsPickupID = new String[2];
         cardsPickupID_split = new String[2][2];
         cardsPickupID_count = 0;
@@ -61,7 +60,7 @@ public class PlayerClass {
 
     //------------------------------------------------------------------------------------------------------------------
     // getter setter
-        // -----
+    // -----
 
     public int[][] getCardsRand() {
         return cardsRand;
@@ -71,7 +70,7 @@ public class PlayerClass {
         return cardsRand;
     }
 
-        // -----
+    // -----
     public void setCardsChecked(int[][][] cardsChecked) {
         System.out.println("SET แล้วนะCARDS CHECKED!!");
         System.out.println();
@@ -106,18 +105,18 @@ public class PlayerClass {
     public int[][][] getCardsChecked() {
         return cardsChecked;
     }
-    
-        // -----
+
+    // -----
     public String[][] getImgArraysID() {
         return imgArraysID;
     }
-    
-        // -----
+
+    // -----
     public void setCardsPickupID(String cardsPickupID) {
         this.cardsPickupID[cardsPickupID_count] = cardsPickupID;
         setCardsPickupID_split(cardsPickupID);
         cardsPickupID_count++;
-        
+
         if (cardsPickupID_count == 2)
             Arrays.sort(this.cardsPickupID);
     }
@@ -125,19 +124,19 @@ public class PlayerClass {
     public String[] getCardsPickupID() {
         return cardsPickupID;
     }
-    
+
     public void setCardsPickupID_NULL() {
         cardsPickupID_count--;
         cardsPickupID[cardsPickupID_count] = null;
         cardsPickupID_split[cardsPickupID_count]= null;
     }
-    
+
     public void setCardsPickupID_FILLNULL() {
         Arrays.fill(cardsPickupID, null);
         Arrays.fill(cardsPickupID_split, null);
     }
-    
-        // -----
+
+    // -----
     private void setCardsPickupID_split(String cardsPickupID) {
         this.cardsPickupID_split[cardsPickupID_count] = cardsPickupID.split("_", -1);
     }
@@ -146,7 +145,7 @@ public class PlayerClass {
         return cardsPickupID_split;
     }
 
-        // -----
+    // -----
     public void setCardsPickupID_count(int cardsPickupID_count) {
         this.cardsPickupID_count = cardsPickupID_count;
     }
@@ -154,10 +153,10 @@ public class PlayerClass {
     public int getCardsPickupID_count() {
         return cardsPickupID_count;
     }
-        // -----
+    // -----
     //------------------------------------------------------------------------------------------------------------------
     // method
-    
+
     public int amountCards() {
         int amount = 0;
         for (int i = 0; i < getCardsChecked().length; i++) {
@@ -199,7 +198,7 @@ public class PlayerClass {
             }
         }
     }
-    
+
     public int[] checkIndex(String id) {                                                                                // check index between 2 id
         int[] tempPos = new int[2];
 
@@ -211,9 +210,9 @@ public class PlayerClass {
                 }
             }
         }
-        
+
         return tempPos;
     }
-    
+
     //------------------------------------------------------------------------------------------------------------------
 }
