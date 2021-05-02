@@ -175,7 +175,6 @@ public class BotClass {
                             if (botNum == 2 && amountCard[1] == 0)
                                 botNumpick = 2;
 
-
                             if (botNumpick != botNum) {
                                 cardBotCheck[j][botNum]--;
                                 amountCard[botNum]--;
@@ -186,8 +185,6 @@ public class BotClass {
                                 amountCard[botNumpick]++;
                                 System.out.println("Bot" + botNumpick + " pickCard:" + i + "|" + j + " Frombot" + botNum);
                             }
-
-
                         }
                     }
                 }
